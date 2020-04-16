@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MeetingSimulator.Api.Data;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
@@ -13,6 +14,7 @@ namespace MeetingSimulator.Api
     {
         public static void Main(string[] args)
         {
+            MeetingSimulatorDbContex meetingSimulatorDbContex = new MeetingSimulatorDbContex();
             CreateHostBuilder(args).Build().Run();
         }
 
