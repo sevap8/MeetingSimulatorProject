@@ -17,7 +17,6 @@ namespace MeetingSimulator.Core.Services
 
         public void AddMember(MemberRegistrationInfo memberRegistrationInfo)
         {
-
             var entityToAdd = new MemberEntity() 
             { 
                 Name = memberRegistrationInfo.Name, 
@@ -31,7 +30,6 @@ namespace MeetingSimulator.Core.Services
             }
 
             this.memberRepository.Add(entityToAdd);
-
             this.memberRepository.Save();
         }
 
@@ -41,7 +39,6 @@ namespace MeetingSimulator.Core.Services
             {
                 throw new ArgumentException($"This member is missing {id}! ");
             }
-
             return memberRepository.GetMemberById(id); 
         }
 

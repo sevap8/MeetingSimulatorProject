@@ -14,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MeetingSimulator.Api\MeetingSimulator.Api.csproj" />
     <ProjectReference Include="..\MeetingSimulator.Core\MeetingSimulator.Core.csproj" />
   </ItemGroup>
 

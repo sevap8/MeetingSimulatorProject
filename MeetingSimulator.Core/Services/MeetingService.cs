@@ -31,7 +31,6 @@ namespace MeetingSimulator.Core.Services
             }
 
             this.meetingRepository.Add(entityToAdd);
-
             this.meetingRepository.Save();
         }
 
