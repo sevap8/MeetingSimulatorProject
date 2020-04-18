@@ -1,12 +1,12 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using MeetingSimulator.Api.Data;
+using MeetingSimulator.Api.Repositories;
+using MeetingSimulator.Core.Dto;
+using MeetingSimulator.Core.Models;
+using MeetingSimulator.Core.Repositories;
+using MeetingSimulator.Core.Services;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 
 namespace MeetingSimulator.Api
 {
@@ -14,7 +14,22 @@ namespace MeetingSimulator.Api
     {
         public static void Main(string[] args)
         {
-            MeetingSimulatorDbContex meetingSimulatorDbContex = new MeetingSimulatorDbContex();
+            MeetingSimulatorDbContext meetingSimulatorDbContext = new MeetingSimulatorDbContext();
+            IMemberRepository memberRepository = new MemberRepository(meetingSimulatorDbContext);
+            //MemberServices memberServices = new MemberServices(memberRepository);
+            //MeetingRepository meetingRepository = new MeetingRepository(meetingSimulatorDbContext);
+            //MeetingService meetingService = new MeetingService(meetingRepository);
+            MemberMeetingRepository memberMeetingRepository = new MemberMeetingRepository(meetingSimulatorDbContext);
+            MemberMeetingService memberMeetingService = new MemberMeetingService(memberMeetingRepository);
+            //var a = memberRepository.ContainsId(4);
+            //var b = memberMeetingRepository.ContainsMemberId(4);
+           memberMeetingService.AddMembersToTheMeeting(3, 4);
+
+            //foreach (var item in some)
+            //{
+            //    Console.WriteLine(item.MeetingName, item.Place, item.Surname);
+            //}
+
             CreateHostBuilder(args).Build().Run();
         }
 

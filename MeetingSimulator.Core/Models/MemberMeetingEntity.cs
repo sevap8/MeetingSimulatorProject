@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MeetingSimulator.Core.Models
+﻿namespace MeetingSimulator.Core.Models
 {
     public class MemberMeetingEntity
     {

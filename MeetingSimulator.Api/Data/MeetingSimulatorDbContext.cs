@@ -4,13 +4,13 @@ using System;
 
 namespace MeetingSimulator.Api.Data
 {
-    public class MeetingSimulatorDbContex : DbContext
+    public class MeetingSimulatorDbContext : DbContext
     {
         public DbSet<MemberEntity> Members { get; set; }
         public DbSet<MeetingEntity> Meetings { get; set; }
         public DbSet<MemberMeetingEntity> MemberMeetings { get; set; }
 
-        public MeetingSimulatorDbContex()
+        public MeetingSimulatorDbContext()
         {
             Database.EnsureCreated();
         }
