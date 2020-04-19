@@ -10,7 +10,7 @@ namespace MeetingSimulator.Api.Data
         public DbSet<MeetingEntity> Meetings { get; set; }
         public DbSet<MemberMeetingEntity> MemberMeetings { get; set; }
 
-        public MeetingSimulatorDbContext()
+        public MeetingSimulatorDbContext(DbContextOptions<MeetingSimulatorDbContext> dbContextOptions): base(dbContextOptions)
         {
             Database.EnsureCreated();
         }
@@ -66,9 +66,9 @@ namespace MeetingSimulator.Api.Data
             base.OnModelCreating(modelBuilder);
         }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer(@"Server=DESKTOP-PS4FLU8;Database=MemberMeetingTestDb;Trusted_Connection=True;");
-        }
+        ////protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        ////{
+        ////    optionsBuilder.UseSqlServer(@"Server=DESKTOP-PS4FLU8;Database=MemberMeetingTestDb;Trusted_Connection=True;");
+        ////}
     }
 }
