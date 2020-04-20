@@ -1,13 +1,18 @@
 # MeetingSimulatorProject
 Training project simulating a service for staging meetings with participants.
 For implementation created API interacting with the database (Microsoft SQL Server).
-1)Application uses entity framework, 
+
+1)Application uses entity framework.
+
 2)When launching the application creates 3 entities
 -MeetingEntity
 -MemberEntity
 -MemberMeetingEntity
+
 3)The database is populated with initial data.
+
 4)Added several unit tests.
+
 5)The following functions have been created:
 MeetingService
 -AddMeeting
