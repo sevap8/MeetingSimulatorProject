@@ -14,21 +14,25 @@ For implementation created API interacting with the database (Microsoft SQL Serv
 4)Added several unit tests.
 
 5)The following functions have been created:
+
 MeetingService
 -AddMeeting
 -GetAllMeeting
 -GetMeetingById
 -RemoveMeeting
+
 MemberService:
 -AddMember
 -GetAllMember
 -GetMemberById
 -RemoveMember
+
 MemberMeetingService:
 -AddMembersToTheMeeting
 -RemoveMembersToTheMeeting
 -GetListOfMeetingsAndMembers
-5)For testing api queries are used: 
+
+6)For testing api queries are used: 
 MeetingController: 
 - GET: api/Meeting/
 - GET: api/Meeting/1
