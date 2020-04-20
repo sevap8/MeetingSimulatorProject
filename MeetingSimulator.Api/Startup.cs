@@ -16,6 +16,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
+
 namespace MeetingSimulator.Api
 {
     public class Startup
@@ -27,7 +28,6 @@ namespace MeetingSimulator.Api
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<MeetingSimulatorDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DbContext")));
@@ -38,7 +38,6 @@ namespace MeetingSimulator.Api
             services.AddTransient<IMemberMeetingRepository, MemberMeetingRepository>();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
