@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using MeetingSimulator.Api.Data;
 using MeetingSimulator.Api.Repositories;
 using MeetingSimulator.Core.Dto;
 using MeetingSimulator.Core.Models;
-using MeetingSimulator.Core.Services;
 using MeetingSimulator.Core.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -41,6 +37,7 @@ namespace MeetingSimulator.Api.Controllers
             return new ObjectResult(meeting);
         }
 
+        //Invoke-RestMethod https://localhost:44361/api/Meeting -Method POST -Body (@{Name = "SomeSurname"; Place = "SomePlace"; DateTime= 2015, 7, 20} | ConvertTo-Json) -ContentType "application/json"
         // POST: api/Meeting
         [HttpPost]
         public void Post([FromBody] MeetingRegistrationInfo value)

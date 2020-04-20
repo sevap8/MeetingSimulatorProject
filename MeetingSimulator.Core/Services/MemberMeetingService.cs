@@ -16,12 +16,12 @@ namespace MeetingSimulator.Core.Services
             this.memberMeetingRepository = memberMeetingRepository;
         }
 
-        public void AddMembersToTheMeeting(int meetingId, int memberId)
+        public void AddMembersToTheMeeting(MeetingMemberRegistrationInfo registrationInfo)
         {
             var entityToAdd = new MemberMeetingEntity
             {
-                MeetingId = meetingId,
-                MemberId = memberId
+                MeetingId = registrationInfo.MeetingId,
+                MemberId = registrationInfo.MemberId
             };
 
             if (this.memberMeetingRepository.Contains(entityToAdd))
@@ -39,12 +39,12 @@ namespace MeetingSimulator.Core.Services
             this.memberMeetingRepository.Save();
         }        
         
-        public void RemoveMembersToTheMeeting(int meetingId, int memberId)
+        public void RemoveMembersToTheMeeting(MeetingMemberRegistrationInfo registrationInfo)
         {
             var memberMeetingEntity = new MemberMeetingEntity 
             { 
-                MeetingId = meetingId,
-                MemberId = memberId
+                MeetingId = registrationInfo.MeetingId,
+                MemberId = registrationInfo.MemberId
             };
 
             if (!this.memberMeetingRepository.Contains(memberMeetingEntity))

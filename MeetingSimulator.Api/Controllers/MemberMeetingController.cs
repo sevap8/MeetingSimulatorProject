@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using MeetingSimulator.Core.Dto;
 using MeetingSimulator.Core.Models;
 using MeetingSimulator.Core.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
@@ -27,19 +25,20 @@ namespace MeetingSimulator.Api.Controllers
             return new ObjectResult(memberMeeting);
         }
 
+        //Invoke-RestMethod https://localhost:44361/api/MemberMeeting -Method POST -Body (@{MeetingId = 3; MemberId= 3} | ConvertTo-Json) -ContentType "application/json"
         // POST: api/MemberMeeting
         [HttpPost]
-        public void Post([FromBody] int meetingId, int memberId)
+        public void Post([FromBody] MeetingMemberRegistrationInfo registrationInfo)
         {
-            memberMeetingService.AddMembersToTheMeeting(meetingId, memberId);
+            memberMeetingService.AddMembersToTheMeeting(registrationInfo);
         }
 
-        //Invoke-RestMethod https://localhost:44361/api/MemberMeeting/1/1 -Method DELETE
+        //Invoke-RestMethod https://localhost:44361/api/MemberMeeting -Method DELETE -Body (@{MeetingId = 4; MemberId= 3} | ConvertTo-Json) -ContentType "application/json"
         // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
-        public void Delete(int meetingId, int memberId)
+        [HttpDelete]
+        public void Delete(MeetingMemberRegistrationInfo registrationInfo)
         {
-            memberMeetingService.RemoveMembersToTheMeeting(meetingId, memberId);
+            memberMeetingService.RemoveMembersToTheMeeting(registrationInfo);
         }
     }
 }

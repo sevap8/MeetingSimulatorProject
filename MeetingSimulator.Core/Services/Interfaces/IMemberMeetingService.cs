@@ -7,8 +7,8 @@ namespace MeetingSimulator.Core.Services.Interfaces
 {
     public interface IMemberMeetingService
     {
-        void AddMembersToTheMeeting(int meetingId, int memberId);
-        void RemoveMembersToTheMeeting(int meetingId, int memberId);
+        void AddMembersToTheMeeting(MeetingMemberRegistrationInfo registrationInfo);
+        void RemoveMembersToTheMeeting(MeetingMemberRegistrationInfo registrationInfo);
         IEnumerable<MeetingMembeInfo> ListOfMeetingsAndMembers();
     }
 }
